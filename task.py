@@ -17,16 +17,16 @@ def filter_letters(s):
 
 '''2. Необходимо нормализовать строку убрав все дополнительные символы возле слов. Пример: 
     => normalize("X > %Y") "X > Y"
-    => normalize(" X > Y >") "X > Y"
-    => normalize(""X" >'Y'> I \t> 1Z2") "X > Y > I > 1Z2"
-    Дополнительные символы: !"$%&'*+,-./:;<>=?[\]^`{|}~\t\n\x0b\x0c\r'''
+    => normalize(" X > Y <") "X > Y"
+    => normalize(""X" > 'Y'> I \t> 1Z2") "X > Y > I > 1Z2"
+    Дополнительные символы: !"$%&'*+,-./:;<=?[\]^`{|}~\t\n\x0b\x0c\r'''
 
 
 s = ("X > %Y")
-s = (" X > Y >")  # if delete second symbol '>' code will working
-s = """(""X" >'Y'> I \t> 1Z2")"""
+s = (" X > Y <")  # if delete second symbol '>' code will working
+s = """(""X" >' Y' > I \t > 1Z2")"""
 
-characters = """!"$%&'*+,-./:;<>=?[\]^`{|}~\t\n\x0b\x0c\r""" # if delete symbol '>' code will working
+characters = """!"$%&'*+,-./:;<=?[\]^`{|}~\t\n\x0b\x0c\r""" # if delete symbol '>' code will working
 result = ""
 
 for i in s:
